@@ -1,0 +1,26 @@
+<p>{{msgs}}</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <label for = "sami" >Saiyam :</label>
+    <input type="int" name = "sami" placeholder = "values > 0" min=0 value = 0>
+    <br>
+    <br>
+    <label for = "utsi" >Utsi :</label>
+    <input type="int" name = "utsi" placeholder = "values > 0" min=0 value = 0> 
+    <br>
+    <br>
+    <label for = "vanshi" >Vansh :</label>
+    <input type="int" name = "vanshi" placeholder = "values > 0" min=0 value = 0> 
+    <br>
+    <br>
+    <label for = "meet" >Manmeet :</label>
+    <input type="int" name = "meet" placeholder = "values > 0" min=0 value = 0> 
+    <br>
+    <br>
+    <label for="shift">Shift: </label>
+    <select name="shift">
+        <option value="1">Morning</option>
+        <option value="2">Night</option>
+    </select>
+    <button type="submit"> Submit</button>
+</form>

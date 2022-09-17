@@ -1,0 +1,62 @@
+{% extends 'base_temp.html' %}
+
+{% block css %}
+
+.prop_todo{
+    width:200px;
+    height:200px;
+    border:1px solid #A5C9CA;
+    border-radius:4%;
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    flex-flow:column;
+    color:#66FCF1;
+}
+.tablechange{
+    width:500px;
+    text-align:center;
+}
+.basic{
+    width:100%;
+    display:flex;
+    justify-content:space-evenly;
+    height:400px;
+    align-items:center;
+}
+{% endblock %}
+
+{% block body %}
+<div class = "basic">
+    <div style="
+    height: 280px;
+    margin-top: 50px;
+    ">
+        <table class="table table-dark table-hover tablechange">
+            <thead >
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Task</th>
+                <th scope="col">Created</th>
+                <th scope="col">--</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for data in todo_lst%}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{data.title}}</td>
+                    <td>{{data.added}}</td>
+                    <td><a href = "dlt_task/{{data.id}}/">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class = "prop_todo">
+        <h5>{{todo_cnt}} Task Remaining</h5>
+        <a href = "new_task"><button class = "btn btn-primary">Add Task</button></a>
+        <a href = "dlt_all_task"><button class = "btn btn-primary">Clear All</button></a>
+    </div>
+</div>
+{% endblock %}

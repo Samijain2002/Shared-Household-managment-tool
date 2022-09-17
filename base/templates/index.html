@@ -1,0 +1,70 @@
+{% extends 'base_temp.html' %}
+
+{% block css %}
+
+.tablechange{
+    width:950px;
+}
+table td, th{
+    text-align:center;
+}
+.second_bottom{
+    width:950px;
+    height:40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.second_bottom button{
+    margin-left:20px;
+    margin-right:20px;
+}
+{% endblock %}
+
+{% block body %}
+
+<div style="
+    height: 280px;
+    margin-top: 50px;
+    margin-left:10px;
+    ">
+    <table class="table table-dark table-hover tablechange">
+        <thead >
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Shift</th>
+            <th scope="col">Saiyam</th>
+            <th scope="col">Utsarg</th>
+            <th scope="col">Vansh</th>
+            <th scope="col">Manmeet</th>
+            <th scope="col">--</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for data in tiffin%}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{data.today_day}}</td>
+                {% if data.shift == "1"%}
+                    <td>Morning</td>
+                {% else %}
+                    <td>Night</td>
+                {% endif %}
+                <td>{{data.sami}}</td>
+                <td>{{data.utsi}}</td>
+                <td>{{data.vanshi}}</td>
+                <td>{{data.meetu}}</td>
+                <td><a href = "/dlt/{{data.id}}">Delete</a></td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class = "second_bottom">
+    <a href="/new_tiffin"><button class = "btn btn-primary">Add New Details</button></a>
+    <a href = "/dlt_all_tfn"> <button class = "btn btn-primary">Clear Details</button></a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base_temp.html' %}
+
+
+{% block css %}
+.tablechange{
+    width:950px;
+}
+table td, th{
+    text-align:center;
+}
+.second_bottom{
+    width:950px;
+    height:40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.second_bottom button{
+    margin-left:20px;
+    margin-right:20px;
+}
+{% endblock %}
+
+
+
+{% block body %}
+<div style="
+    height: 280px;
+    margin-top: 50px;
+    margin-left:10px;
+
+    ">
+    <table class="table table-dark table-hover tablechange">
+        <thead >
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Payday</th>
+            <th scope="col">Amount</th>
+            <th scope="col">--</th>
+
+        </tr>
+        </thead>
+        <tbody>
+            {% for data in maid%}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{data.payday}}</td>
+                <td>{{data.amount}}</td>
+                <td><a href = "dlt_maid/{{data.id}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class = "second_bottom">
+    <a href = "new_maid">
+        <button class = "btn btn-primary">Add New Details</button>
+    </a>
+    <a href = "dlt_all_maid">
+        <button class = "btn btn-primary">Clear Details</button>
+    </a>
+</div>
+{% endblock %}

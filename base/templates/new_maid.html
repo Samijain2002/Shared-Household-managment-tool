@@ -1,0 +1,9 @@
+<p>{{msgs}}</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <label for = "amount" >Amount :</label>
+    <input type="int" name = "amount" min = 0>
+    <br>
+    <br>
+    <button type="submit">Submit</button>
+</form>
